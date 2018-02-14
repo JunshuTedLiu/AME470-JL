@@ -6,13 +6,40 @@
 function sendToServer(){
   // complete this function.
   //  you can use loadFile()
+  var eq = $("#eq").val();
+  loadFile("./eval?eq=" + encodeURIComponent(eq) , function(resData) {
+  	$("#result").html(resData);
+  });
 }
   </script>
-
+	<style>
+		body {
+			font-family: Helvetica Neue, sans-serif;
+			background-color: #CCCCCC;
+		}
+		h1 {
+			background-color: #EEEEEE;
+			color: #333333;
+			font-size: 69px;
+		}
+		textarea {
+			background-color: #696969;
+			color: #EEEEEE;
+			font-size: 50px;
+		}
+		#result {
+			font-size: 69px;
+		}
+		button {
+			background-color: black;
+			color: white;
+			font-size: 50px;
+		}
+	</style>
 </head>
 
 <body>
-	<h1> Eval </h1>
+	<h1> <em>VERY</em> SIMPLE CALCULATOR! </h1>
   <textarea id='eq'></textarea>
   <button onclick='sendToServer()'> Evaluate </button>
   <div id='result'> </div>
