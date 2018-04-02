@@ -152,6 +152,8 @@
 
 
     $("#theDetails").html(markup);
+      $("#theImageList .item").removeClass("active");
+    $("#theImageList .item:nth-of-type(" + (n+1) + ")").addClass("active");
   }
 
   function start()
