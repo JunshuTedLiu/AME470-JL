@@ -75,21 +75,9 @@
     <script>
         
         function start(){
-          var feedURL = window.location.hash.replace("#","")
+          var feedURL = window.location.hash.replace("#","");
           var url = "./getFeedData?url=" + feedURL;
-    loadFile(url, function(resData){
-      currRSSData = JSON.parse(resData).feed.results;
-      //var markup = resData;
-      var markup = "";
-      for(var i = 0; i < currRSSData.length; i++){
-        var entry = currRSSData[i];
-        var thumb = entry.artworkUrl100;
-        var name = entry.name;
-        var artist = entry.artistName;
-        markup += "<button onclick='itemSelected(" + i + ")'><img src='" + thumb + "'><h1>" + name+ "</h1><h2>" + artist + "<h2></button>";
-      }
-      $("#theList").html(markup);
-    });
+          loadRSS(url);
           
           
       }
