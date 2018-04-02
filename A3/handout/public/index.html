@@ -73,6 +73,27 @@
         }
     </style>
     <script>
+        
+        function start(){
+          var feedURL = window.location.hash.replace("#","")
+          var url = "./getFeedData?url=" + feedURL;
+    loadFile(url, function(resData){
+      currRSSData = JSON.parse(resData).feed.results;
+      //var markup = resData;
+      var markup = "";
+      for(var i = 0; i < currRSSData.length; i++){
+        var entry = currRSSData[i];
+        var thumb = entry.artworkUrl100;
+        var name = entry.name;
+        var artist = entry.artistName;
+        markup += "<button onclick='itemSelected(" + i + ")'><img src='" + thumb + "'><h1>" + name+ "</h1><h2>" + artist + "<h2></button>";
+      }
+      $("#theList").html(markup);
+    });
+          
+          
+      }
+        
         function getDataFromServer() {
             //var url = "./eval?eq=34-4*45";
             var url = "https://rss.itunes.apple.com/api/v1/us/apple-music/hot-tracks/all/10/explicit.json";
@@ -125,7 +146,7 @@
 
 </head>
 
-<body>
+<body onload='start()'>
     <div id='rssBox'>
         <h1> RSS Reader </h1>
         <button onclick='changeRSSSrc()' id='editButton'> Edit </button>
