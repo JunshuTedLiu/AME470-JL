@@ -77,11 +77,9 @@
         function start(){
           var feedURL = window.location.hash.replace("#","");
           var url = "./getFeedData?url=" + feedURL;
-            if url == ""{
-                "Not doing hashtag json in the address bar."
-            } else {
+            
                 loadRSS(url);
-            }
+          
           
           
           
