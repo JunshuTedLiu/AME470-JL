@@ -145,6 +145,11 @@
     var id = currRSSFeedList[n].id;
     var imgURL = currRSSFeedList[n].url;
     alert(imgURL);
+      
+      markup += "<img src='" + currRSSFeedList[n].url + "'>";
+
+
+    $("#theDetails").html(markup);
   }
 
   function start()
