@@ -243,7 +243,7 @@ body{
   {
       var blur = document.getElementById("blur").value + "px";
       var filter = " blur(" + blur + ")";
-      
+      document.getElementById("theDetails").style.filter = filter;
       
       var brightness = document.getElementById("brightness").value + "px";
       filter+= " brightness(" + brightness + ")";
