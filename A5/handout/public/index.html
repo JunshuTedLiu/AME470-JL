@@ -243,10 +243,10 @@ body{
   {
       var blur = document.getElementById("blur").value + "px";
       var filter = " blur(" + blur + ")";
-      document.getElementById("theDetails").style.filter = filter;
+      
       
       var brightness = document.getElementById("brightness").value + "px";
-      filter+= " brightness(" + blur + ")";
+      filter+= " brightness(" + brightness + ")";
       document.getElementById("theDetails").style.filter = filter;
   }
   </script>
@@ -264,7 +264,7 @@ body{
   <input onchange='applyFilter()' id='blur' value="0" type="range" min="0" max="100">
     
     <label for='brightness'> Brightness </label>
-  <input onchange='applyFilter()' id='brightness' value="0" type="range" min="0" max="100">
+  <input onchange='applyFilter()' id='brightness' value="0" type="range" min="0" max="500">
 </div>
 
 </body>
