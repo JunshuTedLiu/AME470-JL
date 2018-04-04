@@ -5,6 +5,15 @@
   <script src='ac.js'></script>
   <link rel="stylesheet" type="text/css" href="ac.css">
   <style>
+#theInspector input[type=range]{
+    width: 65%;
+    display: inline-block;
+}
+#theInspector label{
+    width: 30%;
+    display: inline-block;
+    text-align: right;
+}
 body{
   margin: 0px;
 }
@@ -171,6 +180,8 @@ body{
     var currName = currRSSFeedList[n].name;
     var id = currRSSFeedList[n].id;
     var imgURL = currRSSFeedList[n].url;
+    resetFilters();
+    // Instead of the above resetFilters(), init the filters stored by user and apply it!
     document.getElementById("theDetails").style.backgroundImage = "url(" + imgURL + ")";
    
     $("#theImageList .item").removeClass("active");
@@ -239,14 +250,42 @@ body{
     //document.getElementById("theDetails").innerHTML = markup;
   }
 
+  function resetFilters()
+  {
+      document.getElementById("blur").value = "0";
+      document.getElementById("brightness").value = "100";
+      document.getElementById("contrast").value = "100";
+      document.getElementById("grayscale").value = "0";
+      document.getElementById("hueRotate").value = "0";
+      document.getElementById("invert").value = "0";
+      document.getElementById("opacity").value = "100";
+      document.getElementById("saturate").value = "100";
+      document.getElementById("sepia").value = "0";
+      applyFilter();
+}
+
   function applyFilter()
   {
       var blur = document.getElementById("blur").value + "px";
-      var filter = " blur(" + blur + ")";
-      document.getElementById("theDetails").style.filter = filter;
-      
-      var brightness = document.getElementById("brightness").value + "px";
-      filter+= " brightness(" + brightness + ")";
+      var brightness = document.getElementById("brightness").value + "%";
+      var contrast = document.getElementById("contrast").value + "%";
+      var grayscale = document.getElementById("grayscale").value + "%";
+      var hueRotate = document.getElementById("hueRotate").value + "deg";
+      var invert = document.getElementById("invert").value + "%";
+      var opacity = document.getElementById("opacity").value + "%";
+      var saturate = document.getElementById("saturate").value + "%";
+      var sepia = document.getElementById("sepia").value + "%";
+
+      var filter = " blur(" + blur + ") ";
+      filter += " brightness(" + brightness + ") ";
+      filter += " contrast(" + contrast + ") ";
+      filter += " grayscale(" + grayscale + ") ";
+      filter += " hue-rotate(" + hueRotate + ") ";
+      filter += " invert(" + invert + ") ";
+      filter += " opacity(" + opacity + ") ";
+      filter += " saturate(" + saturate + ") ";
+      filter += " sepia(" + sepia + ") ";
+
       document.getElementById("theDetails").style.filter = filter;
   }
   </script>
@@ -260,11 +299,34 @@ body{
 </div>
 <div id='theDetails'></div>
 <div id='theInspector'>
+  <br>
   <label for='blur'> Blur </label>
   <input onchange='applyFilter()' id='blur' value="0" type="range" min="0" max="100">
-    
-    <label for='brightness'> Brightness </label>
-  <input onchange='applyFilter()' id='brightness' value="0" type="range" min="0" max="500">
+  <br>
+  <label for='brightness'> Brightness </label>
+  <input onchange='applyFilter()' id='brightness' value="100" type="range" min="0" max="500">
+  <br>
+  <label for='contrast'> Contrast </label>
+  <input onchange='applyFilter()' id='contrast' value="100" type="range" min="0" max="500">
+  <br>
+  <label for='grayscale'> Grayscale</label>
+  <input onchange='applyFilter()' id='grayscale' value="0" type="range" min="0" max="100">
+  <br>
+  <label for='hueRotate'> Hue Rotate</label>
+  <input onchange='applyFilter()' id='hueRotate' value="0" type="range" min="0" max="360">
+  <br>
+  <label for='invert'> Invert </label>
+  <input onchange='applyFilter()' id='invert' value="0" type="range" min="0" max="100">
+  <br>
+  <label for='opacity'> Opacity </label>
+  <input onchange='applyFilter()' id='opacity' value="100" type="range" min="0" max="100">
+  <br>
+  <label for='saturate'> Saturate</label>
+  <input onchange='applyFilter()' id='saturate' value="100" type="range" min="0" max="500">
+  <br>
+  <label for='sepia'> Sepia </label>
+  <input onchange='applyFilter()' id='sepia' value="0" type="range" min="0" max="100">
+  <button onclick='resetFilters()'> Reset </button>
 </div>
 
 </body>
