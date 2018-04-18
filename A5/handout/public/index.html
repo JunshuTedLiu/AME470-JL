@@ -177,6 +177,9 @@ body{
         start();
     })
   }
+  
+  //database
+  var currSelection;
 
   function imgSelected(n)
   {
@@ -286,7 +289,7 @@ body{
 
   function applyFilter()
   {
-  // var n = currSelection;
+  var n = currSelection;
       var blur = document.getElementById("blur").value + "px";
       var brightness = document.getElementById("brightness").value + "%";
       var contrast = document.getElementById("contrast").value + "%";
