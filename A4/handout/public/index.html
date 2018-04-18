@@ -6,6 +6,9 @@
     <script src='ac.js'></script>
     <link rel="stylesheet" type="text/css" href="ac.css">
     <style>
+        #theImageList .item button h1{
+            margin-left: 105px;
+        }
         .item button .thumb {
             width: 100px;
             height: 100px;
@@ -184,7 +187,7 @@
                     var markup = "";
                     for (var i = 0; i < allFeeds.length; i++) {
                         markup += "<div class='item'>";
-                        markup += "<button onclick='imgSelected(" + i + ")'><div class='thumb' style='background-image:url(" + allFeeds[i].url + ")'><h1>" + allFeeds[i].name + "</h1><h2>" + allFeeds[i].url + "<h2></button>";
+                        markup += "<button onclick='imgSelected(" + i + ")'><div class='thumb' style='background-image:url(" + allFeeds[i].url + ")'><h1>" + allFeeds[i].name + "</h1></button>";
                         markup += '<a href="javascript:renameClicked(' + i + ')"> Rename </a>';
                         markup += '<a href="javascript:deleteClicked(' + i + ')"> Delete </a>';
                         markup += "</div>";
