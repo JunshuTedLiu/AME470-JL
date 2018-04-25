@@ -239,6 +239,7 @@ var currSelection;
     // Instead of the above resetFilters(), init the filters stored by user and apply it!
     document.getElementById("theDetails").style.backgroundImage = "url(" + imgURL + ")";
    $("#allImagesWrapper").addClass("hiddeninSmall");
+      $("#theInspector").addClass("hiddeninSmall");
     $("#theImageList .item").removeClass("active");
     $("#theImageList .item:nth-of-type(" + (n+1) + ")").addClass("active");
   }
@@ -246,7 +247,7 @@ var currSelection;
   function start()
   {
     ac.show();
-      $("#theDetails").addClass("hiddeninall");
+//      $("#theDetails").addClass("hiddeninall");
       //old code
 //    $("#rssBox").addClass("hiddeninall");
     var url = "./getAllImgs";
