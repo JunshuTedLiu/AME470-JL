@@ -46,7 +46,7 @@ app.use(express.static(__dirname + '/public'));
 app.use(errorHandler());
 
 app.get("/", function (req, res) {
-    res.redirect("index.html");
+    res.redirect("/index.html");
 });
 
 app.get("/getImgData", function (req, res) {
