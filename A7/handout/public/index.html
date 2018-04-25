@@ -444,6 +444,12 @@ function editImage(){
   <input onchange='applyFilter()' id='sepia' value="0" type="range" min="0" max="100">
   <button onclick='resetFilters()'> Reset </button>
 </div>
+    
+    <div id='editWrapper'>
+    <iframe crossorigin='anonymous'  id='DRFrame'> </iframe>
+    <button style='right:0px' onclick='saveImageEdit()'> Save </button>
+    <button onclick='cancelImageEdit()'> Cancel </button>
+  </div>
 
 </body>
 </html>
