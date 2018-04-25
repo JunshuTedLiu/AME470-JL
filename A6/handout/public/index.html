@@ -5,6 +5,40 @@
   <script src='ac.js'></script>
   <link rel="stylesheet" type="text/css" href="ac.css">
   <style>
+    .hiddeninall{
+      display: none;
+    }
+    @media (min-width: 500px){ /* big */
+      #allRSSFeeds, #rssBox{
+        width: 250px;
+        max-height: 100%;
+        overflow: scroll;
+      }
+      .hiddeninSmall{
+        display: block;
+      }
+      .hiddeninBig{
+        display: none;
+      }
+      #theDetails{
+        width: calc(100% - 500px);
+      }
+    }
+    @media (max-width: 500px){ /* small */
+      #allRSSFeeds, #rssBox{
+        width: 100%;
+      }
+      .hiddeninSmall{
+        display: none;
+      }
+      .hiddeninBig{
+        display: block;
+        margin: 10px;
+      }
+      #theDetails{
+        width: 100%;
+      }
+    }
 #theInspector input[type=range]{
     width: 65%;
     display: inline-block;
@@ -109,6 +143,18 @@ body{
     }
   </style>
   <script>
+      function goBackToMain()
+  {
+    $("#allRSSFeeds").removeClass("hiddeninSmall");
+   // setTimeout(function(){$("#theFeedList .item").removeClass("active")}, 1000);
+  }
+
+  function goBackToList()
+  {
+    $("#theDetails").addClass("hiddeninall");
+    $("#rssBox").removeClass("hiddeninSmall");
+    setTimeout(function(){$("#theList button").removeClass("active")}, 1000);
+  }
   function renameClicked(n){
     var currName = currRSSFeedList[n].name;
     var id = currRSSFeedList[n].id;
@@ -159,6 +205,7 @@ body{
     var feedURL = currRSSFeedList[n].url;
     var url = "./getFeedData?url=" + feedURL;
     loadRSS(url);
+      $("#allRSSFeeds").addClass("hiddeninSmall");
     $("#theImageList .item").removeClass("active");
     $("#theImageList .item:nth-of-type(" + (n+1) + ")").addClass("active");
   }
@@ -195,6 +242,8 @@ var currSelection;
   function start()
   {
     ac.show();
+      $("#theDetails").addClass("hiddeninall");
+    $("#rssBox").addClass("hiddeninall");
     var url = "./getAllImgs";
     loadFile(url, function(resData){
       console.log(resData);
@@ -233,11 +282,13 @@ var currSelection;
         markup += "<button onclick='itemSelected(" + i + ")'><img src='" + thumb + "'><h1>" + name+ "</h1><h2>" + artist + "<h2></button>";
       }
       $("#theList").html(markup);
+        $("#rssBox").removeClass("hiddeninall");
       ac.hide();
     });
   }
   function itemSelected(n)
   {
+      $("#rssBox").addClass("hiddeninSmall");
     $("#theList button").removeClass("active");
     $("#theList button:nth-of-type(" + (n+1) + ")").addClass("active");
     var data = currRSSData[n];
@@ -250,8 +301,10 @@ var currSelection;
     markup += "<img src='" + thumbnail + "'>";
     markup += "<a target='_blank' href='" + link + "'><h1>" + name + "</h1></a>";
 
-
+markup = "<button onclick='goBackToList()' class='hiddeninBig'> Back </button>" + markup;
+      
     $("#theDetails").html(markup);
+      $("#theDetails").removeClass("hiddeninall");
     //document.getElementById("theDetails").innerHTML = markup;
   }
 
@@ -342,6 +395,10 @@ var currSelection;
 	<h1> Image Lib</h1>
   <button id='editButton' onclick='addImgSrc()'> Add</button>
   <div id='theImageList'></div>
+</div>
+    <div id='rssBox'>
+  <button onclick='goBackToMain()' class='hiddeninBig'> Back </button>
+  <div id='theList'></div>
 </div>
 <div id='theDetails'></div>
 <div id='theInspector'>
