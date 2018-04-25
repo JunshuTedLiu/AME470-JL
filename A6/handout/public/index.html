@@ -26,7 +26,7 @@
       }
     }
     @media (max-width: 500px){ /* small */
-      #allImagesWrapper, #theInspector{
+      #allImagesWrapper{
         width: 100%;
       }
       .hiddeninSmall{
@@ -133,14 +133,12 @@ body{
       background: lightgray;
     } 
     #theDetails{
-      width: calc(100% - 500px);
       min-height: 100%;
       background: lightgray;
       text-align:center;
       background-repeat: no-repeat;
       background-position: 50%;
       background-size: contain;
-          margin-left: 250px;
     }
   </style>
   <script>
@@ -250,7 +248,9 @@ var currSelection;
 //      $("#theInspector").addClass("hiddeninall");
 //      $("#theDetails").addClass("hiddeninall");
 //    $("#rssBox").addClass("hiddeninall");
-      $("#allImagesWrapper").removeClass("hiddeninall")
+      
+//      not useful
+//      $("#allImagesWrapper").removeClass("hiddeninall")
     var url = "./getAllImgs";
     loadFile(url, function(resData){
       console.log(resData);
