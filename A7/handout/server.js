@@ -11,6 +11,12 @@ var Client = require('node-rest-client').Client;
 var MS = require("mongoskin");
 var db = MS.db("mongodb://52.53.189.231:27017/ame470");
 
+//a5
+app.use(methodOverride());
+app.use(bodyParser());
+app.use(express.static(__dirname + '/public'));
+app.use(errorHandler());
+
 //s3
 var fs = require('fs');
 var AWS = require('aws-sdk');
@@ -147,10 +153,7 @@ app.post('/uploadFile', function(req, res){
     });
   });
 
-app.use(methodOverride());
-app.use(bodyParser());
-app.use(express.static(__dirname + '/public'));
-app.use(errorHandler());
+
 
 console.log("Simple static server listening at http://" + hostname + ":" + port);
 app.listen(port);
