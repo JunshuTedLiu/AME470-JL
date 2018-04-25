@@ -235,7 +235,7 @@ var currSelection;
     setFilters(n)
     // Instead of the above resetFilters(), init the filters stored by user and apply it!
     document.getElementById("theDetails").style.backgroundImage = "url(" + imgURL + ")";
-   
+   $("#allImagesWrapper").addClass("hiddeninSmall");
     $("#theImageList .item").removeClass("active");
     $("#theImageList .item:nth-of-type(" + (n+1) + ")").addClass("active");
   }
@@ -395,11 +395,11 @@ markup = "<button onclick='goBackToList()' class='hiddeninBig'> Back </button>" 
 <div id='allImagesWrapper'>
 	<h1> Image Lib</h1>
   <button id='editButton' onclick='addImgSrc()'> Add</button>
-  <div id='theImageList'></div>
+    <div id='theImageList'></div>
 </div>
-    <div id='rssBox'>
+<div id='rssBox'>
   <button onclick='goBackToMain()' class='hiddeninBig'> Back </button>
-  <div id='theList'></div>
+    <div id='theList'></div>
 </div>
 <div id='theDetails'></div>
 <div id='theInspector'>
