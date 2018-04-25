@@ -10,7 +10,7 @@
       display: none;
     }
     @media (min-width: 500px){ /* big */
-      #allRSSFeeds, #rssBox{
+      #allImagesWrapper, #rssBox{
         width: 250px;
         max-height: 100%;
         overflow: scroll;
@@ -26,7 +26,7 @@
       }
     }
     @media (max-width: 500px){ /* small */
-      #allRSSFeeds, #rssBox{
+      #allImagesWrapper, #rssBox{
         width: 100%;
       }
       .hiddeninSmall{
@@ -146,7 +146,7 @@ body{
   <script>
       function goBackToMain()
   {
-    $("#allRSSFeeds").removeClass("hiddeninSmall");
+    $("#allImagesWrapper").removeClass("hiddeninSmall");
    // setTimeout(function(){$("#theFeedList .item").removeClass("active")}, 1000);
   }
 
@@ -206,7 +206,7 @@ body{
     var feedURL = currRSSFeedList[n].url;
     var url = "./getFeedData?url=" + feedURL;
     loadRSS(url);
-      $("#allRSSFeeds").addClass("hiddeninSmall");
+//      $("#allRSSFeeds").addClass("hiddeninSmall");
     $("#theImageList .item").removeClass("active");
     $("#theImageList .item:nth-of-type(" + (n+1) + ")").addClass("active");
   }
