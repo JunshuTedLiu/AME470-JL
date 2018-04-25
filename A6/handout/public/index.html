@@ -27,7 +27,7 @@
       }
     }
     @media (max-width: 500px){ /* small */
-      #allImagesWrapper{
+      #allImagesWrapper, #theInspector{
         width: 100%;
       }
       .hiddeninSmall{
@@ -145,7 +145,8 @@ body{
   <script>
       function goBackToMain()
   {
-    $("#allImagesWrapper").removeClass("hiddeninSmall");//correct
+    $("#theDetails").removeClass("hiddeninSmall");//correct
+    $("#theInspector").addClass("hiddeninSmall");
    // setTimeout(function(){$("#theFeedList .item").removeClass("active")}, 1000);
   }
 
