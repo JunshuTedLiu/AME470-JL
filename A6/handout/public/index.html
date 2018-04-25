@@ -401,6 +401,8 @@ markup = "<button onclick='goBackToList()' class='hiddeninBig'> Back </button>" 
 <body onload='start()'>
 <div id='allImagesWrapper'>
 	<h1> Image Lib</h1>
+    <button onclick='goBackToMain()' class='hiddeninBig'> Back </button>
+    <div id='theImageList'></div>
   <button id='editButton' onclick='addImgSrc()'> Add</button>
     <div id='theImageList'></div>
 </div>
@@ -417,8 +419,6 @@ markup = "<button onclick='goBackToList()' class='hiddeninBig'> Back </button>" 
 -->
 </div>
 <div id='theInspector'>
-    <button onclick='goBackToMain()' class='hiddeninBig'> Back </button>
-    <div id='theList'></div>
   <br>
   <label for='blur'> Blur </label>
   <input onchange='applyFilter()' id='blur' value="0" type="range" min="0" max="100">
