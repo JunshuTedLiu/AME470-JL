@@ -8,6 +8,12 @@
       * {
           font-family: "Avenir Next", sans-serif;
       }
+    #theFileUploader
+  {
+    position: absolute;
+    top: 20px;
+    right: 120px;
+  }
 #theInspector input[type=range]{
     width: 65%;
     display: inline-block;
@@ -405,6 +411,7 @@ function editImage(){
 <div id='allImagesWrapper'>
 	<h1> Image Lib</h1>
   <button id='editButton' onclick='addImgSrc()'> Add</button>
+    <input type='file' id='theFileUploader' onchange='fileUploaded()'>
   <div id='theImageList'></div>
 </div>
 <div id='theDetails'></div>
